@@ -1,0 +1,16 @@
+doctype html
+html
+
+  link(rel='stylesheet' href='')
+
+  body
+
+    h1 Are you sure you want to logout?
+
+    form(method='POST')
+      if msg
+        p #{msg}
+
+      button
+        a(href='/') Cancel
+      button(type='submit') Logout

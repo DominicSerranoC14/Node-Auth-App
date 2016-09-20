@@ -19,6 +19,21 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 
 /////////////////////////////////////////
+//Middlewares
+//Session Middle-ware
+app.use(session({
+  store: new RedisStore(),
+  secret: 'authiscool'
+}));
+
+app.use((req, res, next) => {
+  app.locals.email = req.session.email;
+  next();
+});
+/////////////////////////////////////////
+
+
+/////////////////////////////////////////
 // Routes
 //Use the routes moudule
 app.use(routes);

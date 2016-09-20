@@ -10,6 +10,9 @@ html
     h1 Login
 
     form(method='POST')
+      if msg
+        p #{msg}
+
       p
         label(for='email') Email
         input#email(type='email' name='email' placeholder='Email@email.com')
