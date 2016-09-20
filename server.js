@@ -7,11 +7,14 @@ const session = require('express-session');
 const RedisStore = require('connect-redis')(session);
 const routes = require('./routes/');
 const { connect } = require('./db/database');
+
+const port = process.env.PORT || 3000;
 /////////////////////////////////////////
 
 /////////////////////////////////////////
 //Middlewares
 //Set the view engine to pug
+app.set('port', port);
 app.set('view engine', 'pug');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: false}));
@@ -44,8 +47,8 @@ app.use(routes);
 //Server listening on port 3000
 connect()
   .then(() => {
-    app.listen(3000, () => {
-      console.log(`Express server listening on port 3000`);
+    app.listen(port, () => {
+      console.log(`Express server listening on port ${port}`);
     });
   })
   .catch(console.error);
