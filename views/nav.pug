@@ -1,5 +1,11 @@
 ul
-  li
-    a(href='/login') Login
-  li
-    a(href='/register') Register
+  if email
+    h1 Welcome #{email}. You are now signed in!
+    li
+      a(href='/logout') Logout
+  else
+
+    li
+      a(href='/login') Login
+    li
+      a(href='/register') Register

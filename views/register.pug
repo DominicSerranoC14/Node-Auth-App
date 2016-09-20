@@ -7,9 +7,13 @@ html
 
     include nav.pug
 
+
     h1 Register New User
 
     form(method='POST')
+      if msg
+        p #{msg}
+
       p
         label(for='email') Email
         input#email(type='email' name='email' placeholder='Email@email.com')
@@ -18,6 +22,6 @@ html
         input#password(type='password' name='password' placeholder='*********')
       p
         label(for='confirm') Confirm Password
-        input#confirm(type='confirm' name='confirm' placeholder='*********')
+        input#confirm(type='password' name='confirm' placeholder='*********')
       p
         button(type='submit') Register
