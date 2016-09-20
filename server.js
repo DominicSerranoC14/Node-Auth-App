@@ -16,8 +16,6 @@ const port = process.env.PORT || 3000;
 //Set the view engine to pug
 app.set('port', port);
 app.set('view engine', 'pug');
-app.use(express.static('public'));
-app.use(bodyParser.urlencoded({extended: false}));
 /////////////////////////////////////////
 
 
@@ -25,7 +23,9 @@ app.use(bodyParser.urlencoded({extended: false}));
 //Middlewares
 //Session Middle-ware
 app.use(session({
-  store: new RedisStore(),
+  store: new RedisStore({
+    url: process.env.REDIS_URL || 'redis://localhost:6379'
+  }),
   secret: 'authiscool'
 }));
 
@@ -33,6 +33,9 @@ app.use((req, res, next) => {
   app.locals.email = req.session.email;
   next();
 });
+
+app.use(express.static('public'));
+app.use(bodyParser.urlencoded({extended: false}));
 /////////////////////////////////////////
 
 
