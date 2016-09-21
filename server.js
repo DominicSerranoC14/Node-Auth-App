@@ -1,13 +1,13 @@
 'use strict';
 
 const express = require('express');
-const app = express();
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const RedisStore = require('connect-redis')(session);
 const routes = require('./routes/');
 const { connect } = require('./db/database');
 
+const app = express();
 const port = process.env.PORT || 3000;
 /////////////////////////////////////////
 
@@ -22,6 +22,7 @@ app.set('view engine', 'pug');
 /////////////////////////////////////////
 //Middlewares
 //Session Middle-ware
+app.locals.body = {};
 app.use(session({
   store: new RedisStore({
     url: process.env.REDIS_URL || 'redis://localhost:6379'
