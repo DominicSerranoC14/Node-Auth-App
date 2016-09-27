@@ -1,0 +1,35 @@
+body {
+  text-align: center;
+  background: black;
+  color: white;
+}
+
+p, label, button {
+  margin: .5rem;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+li {
+  display: inline;
+  margin: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  color: blue;
+}
+
+form {
+  border: solid 2px white;
+  width: 40%;
+  margin: 2rem auto;
+}

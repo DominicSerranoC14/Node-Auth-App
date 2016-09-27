@@ -68,7 +68,7 @@ router.post('/login', ({session, body: {email, password}}, res, err) => {
         })
       })
     } else {
-      res.render('/login', {msg: 'No user exists with email / password combo.'});
+      res.render('login', {msg: 'No user exists with email / password combo.'});
     }
 
   })

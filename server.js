@@ -14,6 +14,7 @@ const port = process.env.PORT || 3000;
 /////////////////////////////////////////
 //Middlewares
 //Set the view engine to pug
+app.use(express.static('public'));
 app.set('port', port);
 app.set('view engine', 'pug');
 /////////////////////////////////////////
@@ -24,6 +25,8 @@ app.set('view engine', 'pug');
 //Session Middle-ware
 app.locals.body = {};
 app.use(session({
+  resave: false,
+  saveUninitialized: false,
   store: new RedisStore({
     url: process.env.REDIS_URL || 'redis://localhost:6379'
   }),
