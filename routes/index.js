@@ -10,7 +10,7 @@ const User = require('../models/user')
 /////////////////////////////////////////
 //GET routes
 router.get('/', (req, res, err) => {
-  res.render('index')
+  res.render('login')
 });
 
 router.get('/login', (req, res, err) => {
