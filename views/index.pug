@@ -6,3 +6,11 @@ html
   body
 
     include nav.pug
+
+    if email
+
+      h1 Welcome #{email}. You are now signed in!
+
+    else   
+
+      h1 Welcome to my App! Please sign in or register.
