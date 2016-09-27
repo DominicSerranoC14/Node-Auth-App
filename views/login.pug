@@ -10,17 +10,15 @@ html
     if msg
       p #{msg}
 
-    else
+    h1 Login
 
-      h1 Login
+    form(method='POST')
 
-      form(method='POST')
-
-        p
-          label(for='email') Email
-          input#email(type='email' name='email' placeholder='Email@email.com')
-        p
-          label(for='password') Password
-          input#password(type='password' name='password' placeholder='*********')
-        p
-          button(type='submit') Login
+      p
+        label(for='email') Email
+        input#email(type='email' name='email' placeholder='Email@email.com')
+      p
+        label(for='password') Password
+        input#password(type='password' name='password' placeholder='*********')
+      p
+        button(type='submit') Login
